@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rumo Ad Lab</title>
+<meta name="description" content="Rumo Ad Lab by Simplificate: 24 Instagram ad variants for a training and fuel app across four funnel phases and eight A/B rounds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one long build sheet. Brand system first, then the test map, then four phase sections of ad cards. */
+:root{
+  --ink:#0B0B0F; --volt:#C8FF2E; --uv:#6B2BFF; --chalk:#F2F0EA; --red:#FF4A2B; --steel:#1C1C24;
+  --bg:#F2F0EA; --fg:#0B0B0F; --muted:#55525E; --card:#FFFFFF; --line:#DEDAD0; --soft:#E7E3F7;
+  --accent:#6B2BFF; --title2:#0B0B0F; --chip:#E7E3F7; --chipfg:#2A1270;
+  --display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif; --body:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#0B0B0F; --fg:#F2F0EA; --muted:#A9A6B4; --card:#15151C; --line:#2A2A35; --soft:#1D1A2E; --accent:#C8FF2E; --title2:#FFFFFF; --chip:#2A2342; --chipfg:#E3DBFF; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#0B0B0F; --fg:#F2F0EA; --muted:#A9A6B4; --card:#15151C; --line:#2A2A35; --soft:#1D1A2E; --accent:#C8FF2E; --title2:#FFFFFF; --chip:#2A2342; --chipfg:#E3DBFF; color-scheme:dark }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:max(16px,3vw);padding-block:28px 72px}
+h1,h2,h3{font-family:var(--display);font-stretch:125%;text-wrap:balance;margin:0}
+h1{font-size:clamp(46px,8vw,96px);line-height:.92;font-weight:900;color:var(--accent);letter-spacing:-.02em;text-transform:uppercase}
+h1 .lab{color:var(--title2)}
+h2{font-size:clamp(24px,3.2vw,38px);font-weight:800;line-height:1.08;text-transform:uppercase;letter-spacing:-.01em}
+h3{font-size:18px;font-weight:800;line-height:1.2}
+p{margin:0}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.lead{max-width:64ch;color:var(--muted);font-size:17.5px}
+header{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding-bottom:8px}
+.by{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.by .studio{font-weight:700;font-size:13px;letter-spacing:.06em;border:1.5px solid var(--fg);border-radius:999px;padding:4px 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:13.5px}
+.chip b{color:var(--accent);font-weight:700}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);padding:10px 0;border-bottom:1.5px solid var(--line);margin-top:6px}
+nav.jump{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:100%;min-width:0;flex:1 1 300px}
+nav.jump::-webkit-scrollbar{display:none}
+nav.jump a{white-space:nowrap;text-decoration:none;color:var(--fg);font-size:13.5px;font-weight:500;padding:6px 11px;border-radius:999px;background:var(--soft)}
+nav.jump a:hover,nav.jump a:focus-visible{background:var(--accent);color:var(--bg)}
+.toggle{display:inline-flex;align-items:center;gap:8px;font:600 13.5px var(--body);background:var(--fg);color:var(--bg);border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.toggle[aria-pressed="true"]{background:var(--uv);color:#fff}
+.toggle.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--fg)}
+.toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar-btns{display:flex;gap:8px;flex-wrap:wrap}
+section{margin-top:56px;scroll-margin-top:70px}
+.sec-head{display:grid;gap:8px;margin-bottom:20px;max-width:72ch}
+.sec-head p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+.tile{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:18px 18px 20px;min-width:0;display:grid;gap:6px;align-content:start}
+.tile .num{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:30px;color:var(--accent);line-height:1}
+.tile p{font-size:14.5px;color:var(--muted)}
+.k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+
+/* brand */
+.brand{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.logos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.logo-box{border-radius:12px;display:grid;place-items:center;aspect-ratio:3/2;padding:12px;container-type:inline-size}
+.logo-box .logo{position:static;font-size:15cqw}
+.logo-box.light{background:#F2F0EA;border:1.5px solid #DEDAD0;color:#0B0B0F;--tip:#6B2BFF}
+.logo-box.dark{background:#0B0B0F;color:#F2F0EA;--tip:#C8FF2E}
+.logo-cap{font-size:12.5px;color:var(--muted);margin-top:6px}
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.sw{border-radius:12px;overflow:hidden;border:1.5px solid var(--line);background:var(--card)}
+.sw i{display:block;height:58px}
+.sw div{padding:8px 10px;font-size:13px;line-height:1.35}
+.sw b{display:block}
+.sw code{font-size:12px;color:var(--muted)}
+.type{display:grid;gap:10px}
+.type .spec{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:1.5px solid var(--line);padding-bottom:10px}
+.type .spec span{font-size:13px;color:var(--muted)}
+
+/* catalogue */
+.cat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.prod{background:var(--card);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;display:grid;align-content:start}
+.shot{position:relative;aspect-ratio:4/5;max-width:100%;container-type:inline-size;background:#F2F0EA;background-image:linear-gradient(#E4E0D4 1px,transparent 1px),linear-gradient(90deg,#E4E0D4 1px,transparent 1px);background-size:8cqw 8cqw;overflow:hidden}
+.shot .phone{width:50cqw;left:25cqw;top:9.7cqw;border-radius:7cqw}
+.prod .info{padding:12px 14px 16px;display:grid;gap:4px}
+.prod .info code{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.08em}
+.prod .info b{font-size:17px}
+.prod .info p{font-size:14px;color:var(--fg)}
+.prod .info .pl{font-size:13px;color:var(--muted)}
+.prod .info .uses{font-size:12px;color:var(--chipfg);background:var(--chip);border-radius:999px;padding:2px 9px;width:max-content;max-width:100%;margin-top:4px}
+
+/* layouts */
+.layouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+.lay{background:var(--card);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;display:grid;align-content:start}
+.lay .mini{padding:12px 12px 0}
+.lay .txt{padding:14px 16px 18px;display:grid;gap:6px}
+.lay .txt p{font-size:14px;color:var(--muted)}
+.fixed{margin-top:14px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;margin-top:16px}
+.plan b{font-family:var(--display);font-stretch:125%;font-size:20px}
+.plan .price{font-size:15px;color:var(--fg);font-variant-numeric:tabular-nums}
+
+/* tables */
+.tbl{overflow-x:auto;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:4px 6px;max-width:100%}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:14px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1.5px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+td.r{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:22px;color:var(--accent)}
+.ph{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--chip);color:var(--chipfg)}
+
+/* phases and rounds */
+.phase{margin-top:72px;border-top:3px solid var(--fg);padding-top:22px}
+.phase-head{display:grid;gap:10px;margin-bottom:18px}
+.phase-head .pn{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.phase-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-bottom:6px}
+.phase-tiles .tile{background:var(--soft);border-color:transparent}
+.round{margin-top:36px}
+.round-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.round-head .n{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:46px;line-height:1;color:var(--accent)}
+.round-sub{color:var(--muted);max-width:72ch;margin-top:6px;font-size:15px}
+.round-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+.round-meta span{font-size:13px;padding:4px 11px;border-radius:999px;background:var(--chip);color:var(--chipfg);font-weight:500;max-width:100%}
+.cells{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;align-items:start}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.card-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 8px;padding:10px 14px;font-size:12.5px;font-weight:700;letter-spacing:.04em;border-bottom:1.5px solid var(--line)}
+.card-top .id{color:var(--accent)}
+.art{padding:12px 12px 0}
+.art.tall{display:grid;justify-items:center}
+.art.tall .ad{width:78%}
+.meta{padding:14px 16px 18px;display:grid;gap:12px;font-size:14.5px}
+.kv{display:grid;gap:4px}
+.v.m{color:var(--muted)}
+.lever{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:18px;line-height:1.2}
+.trig{display:flex;gap:6px;flex-wrap:wrap}
+.trig span{background:var(--volt);color:#0B0B0F;border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:600}
+.trig.cue span{background:var(--chip);color:var(--chipfg)}
+.copy{background:var(--soft);border-radius:12px;padding:12px 14px;display:grid;gap:7px}
+.copy .row{display:grid;grid-template-columns:86px minmax(0,1fr);gap:8px;font-size:14px}
+.copy .row .lab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;padding-top:2px}
+.copy .btn{display:inline-block;background:var(--fg);color:var(--bg);border-radius:8px;padding:3px 11px;font-size:13px;font-weight:700;width:max-content}
+.copy .count{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* ---------- ad surface (brand colours are fixed: the ads look the same in both page themes) ---------- */
+.ad{position:relative;width:100%;max-width:100%;aspect-ratio:4/5;overflow:hidden;container-type:inline-size;background:var(--f,#6B2BFF);isolation:isolate;color:#0B0B0F;border-radius:10px}
+.ad.v{aspect-ratio:9/16}
+.logo{position:absolute;display:inline-flex;align-items:center;gap:.06em;font-family:var(--display);font-stretch:125%;font-weight:800;line-height:1;letter-spacing:-.01em;color:inherit}
+.logo svg{height:.74em;width:.74em;display:block}
+.ad>.logo{font-size:5.6cqw}
+
+/* phone mockup, its own container so the screen scales with the phone */
+.phone{position:absolute;aspect-ratio:9/19;background:#0B0B0F;border-radius:15cqw;border:.9cqw solid #2C2C36;box-shadow:0 2.4cqw 6cqw rgba(11,11,15,.35);container-type:inline-size;overflow:hidden}
+.ad .phone{border-radius:5.4cqw}
+.scr{position:absolute;inset:0;padding:12cqw 7cqw 8cqw;color:#F2F0EA;font-family:var(--body);display:flex;flex-direction:column;gap:4.5cqw}
+.scr .sb{position:absolute;left:8cqw;right:8cqw;top:4.5cqw;display:flex;justify-content:space-between;font:600 4.2cqw/1 var(--body);color:#C9C6D2}
+.scr .sb i{width:22cqw;height:5cqw;background:#000;border-radius:9cqw;position:absolute;left:50%;transform:translateX(-50%);top:-1cqw}
+.scr .ttl{font:800 8.4cqw/1.05 var(--display);font-stretch:112%;letter-spacing:-.01em}
+.scr .lbl{font:600 4.8cqw/1.2 var(--body);color:#A9A6B4;text-transform:uppercase;letter-spacing:.08em}
+.scr .big{font:900 30cqw/.9 var(--display);font-stretch:125%;color:#C8FF2E;letter-spacing:-.03em}
+.scr .row{display:flex;justify-content:space-between;gap:3cqw;font:500 5.6cqw/1.25 var(--body);padding:2.6cqw 0;border-bottom:.4cqw solid #2A2A35}
+.scr .row b{font-weight:700;color:#C8FF2E;white-space:nowrap}
+.scr .pill{align-self:flex-start;background:#C8FF2E;color:#0B0B0F;font:700 5.4cqw/1 var(--body);padding:2.4cqw 4.4cqw;border-radius:9cqw}
+.scr .pill.uv{background:#6B2BFF;color:#fff}
+.scr .warn{color:#FF4A2B}
+.scr .bars{display:flex;align-items:flex-end;gap:2.6cqw;height:30cqw}
+.scr .bars i{flex:1;background:#2E2E3A;border-radius:1.6cqw 1.6cqw 0 0}
+.scr .bars i.on{background:#C8FF2E}
+.scr .days{display:flex;justify-content:space-between;font:600 3.8cqw/1 var(--body);color:#8E8B99}
+.scr .meter{display:grid;gap:1.6cqw}
+.scr .meter div{display:flex;justify-content:space-between;font:600 5.4cqw/1 var(--body)}
+.scr .meter span{color:#A9A6B4;font-weight:500}
+.scr .track{height:3.2cqw;border-radius:9cqw;background:#2E2E3A;overflow:hidden}
+.scr .track b{display:block;height:100%;background:#C8FF2E;border-radius:9cqw}
+.scr .track b.uv{background:#8A5BFF}
+.scr .tl{display:grid;gap:3.4cqw}
+.scr .tl div{display:grid;grid-template-columns:17cqw 1fr;gap:3cqw;font:500 5.4cqw/1.25 var(--body)}
+.scr .tl b{color:#C8FF2E;font-weight:700;font-variant-numeric:tabular-nums}
+.scr .tl .hot b,.scr .tl .hot span{color:#fff}
+.scr .tl .hot{background:#6B2BFF;border-radius:2.4cqw;padding:2cqw;margin:0 -2cqw}
+.scr .weeks{display:grid;grid-template-columns:repeat(6,1fr);gap:2.2cqw}
+.scr .weeks i{aspect-ratio:1;border-radius:2cqw;background:#2E2E3A}
+.scr .weeks i.done{background:#6B2BFF}
+.scr .weeks i.now{background:#C8FF2E}
+.scr .ring{position:relative;width:62cqw;aspect-ratio:1;align-self:center}
+.scr .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.scr .ring .big{position:absolute;inset:0;display:grid;place-items:center;font-size:24cqw}
+.scr .box{background:#1A1A22;border-radius:4cqw;padding:4.4cqw;display:grid;gap:2.4cqw}
+.scr .box .lbl{font-size:4.2cqw}
+.scr .box strong{font:800 6.4cqw/1.1 var(--display);font-stretch:112%;color:#F2F0EA}
+.scr .box em{font:500 4.8cqw/1.3 var(--body);font-style:normal;color:#C9C6D2}
+.scr .spark{display:flex;align-items:flex-end;gap:2cqw;height:14cqw}
+.scr .spark i{flex:1;background:#3A3A48;border-radius:1cqw}
+.scr .spark i.on{background:#C8FF2E}
+.scr .tabs{position:absolute;left:0;right:0;bottom:0;height:20cqw;border-top:.4cqw solid #2A2A35;background:#0F0F15;display:flex;justify-content:space-around;align-items:flex-start;padding-top:3.6cqw;font:600 3.8cqw/1 var(--body);color:#77737F}
+.scr .tabs span{display:grid;justify-items:center;gap:1.6cqw}
+.scr .tabs span::before{content:"";width:5cqw;height:5cqw;border-radius:1.4cqw;border:.7cqw solid currentColor}
+.scr .tabs span.on{color:#C8FF2E}
+.scr .home{position:absolute;left:50%;bottom:3cqw;transform:translateX(-50%);width:34cqw;height:1.4cqw;border-radius:9cqw;background:#55525E}
+
+/* Layout 1: Pace Board. Bold colour field, two tape strips, big stat, phone. */
+.tapes{position:absolute;left:6cqw;top:6cqw;display:grid;justify-items:start;gap:3.2cqw;max-width:88cqw;z-index:2}
+.tw{font-size:var(--ts,6cqw);line-height:1.5}
+.tape{display:inline;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:var(--ts,6cqw);line-height:1.08;padding:1.5cqw 2.6cqw 1.7cqw;text-transform:uppercase;letter-spacing:-.01em}
+.tape.a{background:#C8FF2E;color:#0B0B0F}
+.tape.b{background:#F2F0EA;color:#0B0B0F}
+.L-pace .phone{width:38cqw;right:7cqw;top:36cqw}
+.L-pace .stat{position:absolute;left:6cqw;top:62cqw;max-width:46cqw;display:grid;gap:1.4cqw;color:#F2F0EA}
+.L-pace .stat b{font:900 15cqw/.9 var(--display);font-stretch:125%;color:#C8FF2E;letter-spacing:-.03em}
+.L-pace .stat b small{font:700 5.4cqw/1 var(--body);letter-spacing:0;margin-left:1.2cqw}
+.L-pace .stat span{font:600 3.6cqw/1.3 var(--body);max-width:38cqw}
+.L-pace>.logo{left:6cqw;bottom:6cqw;color:#F2F0EA;--tip:#C8FF2E}
+.L-pace.volt .tape.a{background:#0B0B0F;color:#C8FF2E}
+.L-pace.volt .stat{color:#0B0B0F}
+.L-pace.volt .stat b{color:#0B0B0F}
+.L-pace.volt>.logo{color:#0B0B0F;--tip:#6B2BFF}
+.ad.v.L-pace .tapes{top:27cqw}
+.ad.v.L-pace .phone{width:36cqw;right:7cqw;top:50cqw}
+.ad.v.L-pace .stat{top:72cqw}
+.ad.v.L-pace>.logo{bottom:auto;top:15.5cqw;left:6cqw}
+.ad.v.reel.L-pace .phone{width:27cqw;top:57cqw}
+.ad.v.reel.L-pace .stat{top:68cqw}
+.badge{position:absolute;left:8cqw;top:31cqw;width:25cqw;height:25cqw;border-radius:50%;background:#0B0B0F;color:#C8FF2E;display:grid;place-items:center;text-align:center;font:800 4.4cqw/1 var(--display);font-stretch:125%;text-transform:uppercase;transform:rotate(10deg);padding:2.4cqw;z-index:3;border:.8cqw solid #C8FF2E}
+.L-pace:not(.volt) .badge{background:#C8FF2E;color:#0B0B0F;border-color:#0B0B0F}
+.story-sticker{position:absolute;left:50%;top:129.5cqw;transform:translateX(-50%) rotate(-2deg);background:#fff;color:#0B0B0F;border-radius:3cqw;padding:2.6cqw 4.6cqw;font:700 4.4cqw/1 var(--body);display:flex;gap:2cqw;align-items:center;white-space:nowrap;box-shadow:0 1cqw 3cqw rgba(11,11,15,.3);z-index:3}
+.story-sticker svg{width:4.4cqw;height:4.4cqw}
+.reel-cta{position:absolute;left:4cqw;right:4cqw;bottom:6cqw;z-index:6;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.94);color:#0B0B0F;border-radius:2.4cqw;padding:3cqw 4.4cqw;font:700 4.4cqw/1 var(--body)}
+.reel-cta b{font-size:6cqw;line-height:.6}
+.reel-chip{position:absolute;right:5cqw;top:5cqw;background:rgba(11,11,15,.72);color:#fff;font:700 3.6cqw/1 var(--body);padding:1.8cqw 3cqw;border-radius:99px;display:flex;align-items:center;gap:1.6cqw;z-index:3}
+.reel-chip i{width:0;height:0;border-left:2.6cqw solid #fff;border-top:1.6cqw solid transparent;border-bottom:1.6cqw solid transparent}
+.progress{position:absolute;left:4cqw;right:4cqw;top:3cqw;height:.7cqw;border-radius:9px;background:rgba(255,255,255,.45)}
+.progress::after{content:"";position:absolute;inset:0 62% 0 0;background:#fff;border-radius:9px}
+
+/* Pace Board on ink with a dashed volt route from start to finish (the volt offer variant keeps its solid field) */
+.L-pace:not(.volt){background:#0B0B0F}
+.route{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.L-pace:not(.volt) .tape.b{background:#6B2BFF;color:#FFFFFF}
+.L-pace:not(.volt) .stat{color:#F2F0EA}
+.L-pace:not(.volt) .stat b{color:#C8FF2E}
+.L-pace:not(.volt)>.logo{color:#F2F0EA;--tip:#C8FF2E}
+.L-pace:not(.volt) .phone{border-color:#8E8B99;box-shadow:0 0 0 .3cqw #0B0B0F,0 2cqw 7cqw rgba(107,43,255,.38)}
+
+/* Layout 2: Session Notes. Chalk grid field with the phone, ink band below with one headline and one paragraph. */
+.L-notes{background:#F2F0EA;background-image:linear-gradient(#E1DDD1 1px,transparent 1px),linear-gradient(90deg,#E1DDD1 1px,transparent 1px);background-size:6.25% 5%}
+.L-notes .phone{width:33cqw;left:33.5cqw;top:4.5cqw}
+.L-notes>.logo{left:5cqw;top:5cqw;font-size:4.4cqw;color:#0B0B0F;--tip:#6B2BFF}
+.L-notes .fname{position:absolute;right:5cqw;top:5cqw;background:#0B0B0F;color:#C8FF2E;font:700 3.2cqw/1 var(--body);padding:1.8cqw 3cqw;border-radius:99px;letter-spacing:.04em;text-transform:uppercase}
+.band{position:absolute;left:0;right:0;bottom:0;top:var(--bandTop,78cqw);background:#0B0B0F;color:#F2F0EA;padding:4.6cqw 6cqw 4cqw;display:grid;align-content:center;gap:2.2cqw}
+.band h4{margin:0;font:800 6.4cqw/1.02 var(--display);font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em;color:#F2F0EA;text-wrap:balance}
+.band p{font-size:3.5cqw;line-height:1.38;opacity:.86;max-width:84cqw}
+.band::before{content:"";position:absolute;left:6cqw;top:-1.2cqw;width:18cqw;height:2.4cqw;background:#C8FF2E}
+.band-btn{justify-self:start;background:#C8FF2E;color:#0B0B0F;font:700 3.4cqw/1 var(--body);padding:2cqw 4cqw;border-radius:99px;margin-top:.6cqw}
+.dots{position:absolute;right:6cqw;bottom:4.5cqw;z-index:2;display:flex;gap:1.4cqw}
+.dots i{width:1.8cqw;height:1.8cqw;border-radius:50%;background:rgba(242,240,234,.45)}
+.dots i.on{background:#C8FF2E}
+.count-chip{position:absolute;right:5cqw;top:5cqw;background:rgba(11,11,15,.78);color:#fff;font:700 3.4cqw/1 var(--body);padding:1.6cqw 2.8cqw;border-radius:99px;z-index:3}
+.flat{position:absolute;left:0;right:0;top:0;height:var(--bandTop,78cqw);background:#6B2BFF}
+.fl-tapes{position:absolute;left:6cqw;top:16cqw;display:grid;justify-items:start;gap:2cqw}
+.fl-tapes .tape,.fl-tapes .tw{font-size:5.6cqw}
+.fl-week{position:absolute;left:6cqw;right:6cqw;top:16cqw;display:grid;grid-template-columns:repeat(7,1fr);gap:2cqw}
+.fl-week div{display:grid;gap:1.6cqw;justify-items:center;color:#F2F0EA;font:700 3.4cqw/1 var(--body)}
+.fl-week i{width:100%;aspect-ratio:1/2.2;border-radius:2cqw;background:rgba(242,240,234,.18);display:grid;place-items:end center;padding-bottom:1.4cqw;font:800 2.8cqw/1 var(--display);font-style:normal;color:#0B0B0F;writing-mode:vertical-rl;transform:rotate(180deg)}
+.fl-week i.s{background:#C8FF2E}
+.fl-week i.r{background:#F2F0EA;color:#6B2BFF}
+.fl-key{position:absolute;left:6cqw;top:58cqw;display:flex;gap:4cqw;color:#F2F0EA;font:600 3.2cqw/1 var(--body)}
+.fl-key span{display:flex;align-items:center;gap:1.4cqw}
+.fl-key i{width:3cqw;height:3cqw;border-radius:1cqw;background:#C8FF2E}
+.fl-key i.r{background:#F2F0EA}
+.flat>.logo{left:6cqw;top:5cqw;font-size:4.4cqw;color:#F2F0EA;--tip:#C8FF2E}
+
+/* Layout 3: Race Bib. Chalk paper, pinned bib with the screen, round stamp. */
+.L-bib{background:#F2F0EA;background-image:radial-gradient(circle,#D9D4C6 18%,transparent 21%);background-size:5% 4%}
+.L-bib>.logo{left:6cqw;top:6cqw;font-size:4.6cqw;color:#0B0B0F;--tip:#6B2BFF}
+.bib{position:absolute;left:12cqw;top:15cqw;width:58cqw;background:#fff;padding:3cqw 3cqw 4cqw;transform:rotate(-2.5deg);box-shadow:0 1.6cqw 4cqw rgba(11,11,15,.18);border-top:3cqw solid #6B2BFF;display:grid;gap:2cqw}
+.bib::before,.bib::after{content:"";position:absolute;top:-1.6cqw;width:3cqw;height:3cqw;border-radius:50%;background:#F2F0EA;box-shadow:inset 0 0 0 .6cqw #C9C4B6}
+.bib::before{left:3cqw}.bib::after{right:3cqw}
+.bib .no{font:900 15cqw/.85 var(--display);font-stretch:125%;color:#0B0B0F;letter-spacing:-.03em}
+.bib .cap{font:600 3cqw/1.2 var(--body);color:#55525E;text-transform:uppercase;letter-spacing:.08em}
+.bib .mini{position:relative;height:36cqw;background:#0B0B0F;border-radius:2cqw;overflow:hidden;container-type:inline-size}
+.bib .mini .scr{padding:6cqw 6cqw;gap:3cqw}
+.bib .mini .scr .sb,.bib .mini .scr .home{display:none}
+.stamp{position:absolute;right:6cqw;top:12cqw;width:27cqw;height:27cqw;border-radius:50%;border:1cqw dashed #6B2BFF;display:grid;place-items:center;text-align:center;transform:rotate(-14deg);color:#6B2BFF;font:800 4.4cqw/1 var(--display);font-stretch:125%;text-transform:uppercase;padding:3cqw;background:rgba(242,240,234,.92)}
+.stamp::after{content:"";position:absolute;inset:1.6cqw;border-radius:50%;border:.5cqw solid #6B2BFF}
+.bib-hl{position:absolute;left:6cqw;right:6cqw;top:94cqw;font:800 6.8cqw/1.02 var(--display);font-stretch:125%;text-transform:uppercase;letter-spacing:-.015em;color:#0B0B0F}
+.bib-hl span{color:#6B2BFF;display:block}
+
+/* Layout 4: Feature Card. Ultraviolet field with the phone, one tape, catalogue bar. */
+.L-card{background:#0B0B0F}
+.L-card .phone{border-color:#8E8B99;box-shadow:0 0 0 .3cqw #0B0B0F,0 2cqw 8cqw rgba(107,43,255,.5)}
+.L-card .phone{width:30cqw;left:35cqw;top:23cqw}
+.L-card .tapes{top:5cqw}
+.L-card .tapes{max-width:62cqw}.L-card .tw{text-wrap:balance}
+.L-card>.logo{right:6cqw;top:6cqw;font-size:4.2cqw;color:#F2F0EA;--tip:#C8FF2E}
+.cbar{position:absolute;left:0;right:0;bottom:0;height:24cqw;background:#F2F0EA;display:flex;align-items:center;justify-content:space-between;gap:3cqw;padding:0 6cqw;border-top:1cqw solid #C8FF2E}
+.cbar .nm{font:800 5.6cqw/1 var(--display);font-stretch:125%;color:#0B0B0F;text-transform:uppercase}
+.cbar .pr{font:500 3.4cqw/1.3 var(--body);color:#55525E;margin-top:1.2cqw}
+.cbar .go{background:#0B0B0F;color:#C8FF2E;font:700 3.8cqw/1 var(--body);padding:3cqw 5cqw;border-radius:99px;white-space:nowrap}
+
+/* carousel */
+.strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;scroll-behavior:smooth;overscroll-behavior-x:contain;border-radius:10px}
+.strip::-webkit-scrollbar{display:none}
+.strip .ad{flex:0 0 100%;scroll-snap-align:start;border-radius:0}
+.strip.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none}
+.strip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.car-wrap{position:relative}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(242,240,234,.95);color:#0B0B0F;font:700 26px/1 var(--body);cursor:pointer;box-shadow:0 4px 14px rgba(11,11,15,.25);display:grid;place-items:center;padding:0 0 3px;z-index:4}
+.car-btn.prev{left:8px}.car-btn.next{right:8px}
+.car-btn:disabled{opacity:0;pointer-events:none}
+.car-btn:focus-visible,.car-dot:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 0 2px}
+.car-dot{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
+.car-dot.on{background:var(--accent);width:22px;border-radius:99px}
+.car-count{font-size:12px;color:var(--muted);margin-left:6px;font-variant-numeric:tabular-nums}
+
+/* safe zones */
+.ad.v .safe{display:none;position:absolute;left:0;right:0;z-index:5;background:repeating-linear-gradient(45deg,rgba(255,74,43,.34) 0 2cqw,rgba(255,74,43,.12) 2cqw 4cqw);color:#fff;font:700 3.2cqw/1 var(--body);letter-spacing:.06em;text-transform:uppercase;align-items:center;justify-content:center;text-shadow:0 0 1cqw rgba(11,11,15,.8)}
+.ad.v .safe.top{top:0;height:14%}
+.ad.v .safe.bot{bottom:0;height:20%}
+.ad.v.reel .safe.bot{height:35%}
+body.show-safe .ad.v .safe{display:flex}
+
+.method .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.method .tile strong{font-size:16.5px}
+@media (max-width:640px){ .cat{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px} }
+@media (max-width:520px){ .art.tall .ad{width:100%} .copy .row{grid-template-columns:1fr;gap:2px} }
+@media (prefers-reduced-motion:no-preference){ .card{transition:transform .2s} .card:hover{transform:translateY(-3px)} }
+@media (prefers-reduced-motion:reduce){ html,.strip{scroll-behavior:auto} }
+</style>
+
+</head><body>
+<div class="wrap">
+<header>
+  <div class="by"><span class="studio">Ad lab by Simplificate</span><span class="eyebrow">Instagram · Amsterdam · Concept build</span></div>
+  <h1>Rumo<br><span class="lab">Ad Lab</span></h1>
+  <p class="lead">Twenty four Instagram ads for a training, recovery and fuel app with six features. Four funnel phases, eight A/B rounds of three cells, one variable per round. Every feature gets four ads, so no single screen carries the brand.</p>
+  <div class="chips">
+    <span class="chip"><b>Product</b> training, recovery and fuel app</span>
+    <span class="chip"><b>Range</b> 6 features, 3 plans</span>
+    <span class="chip"><b>Audience</b> people 25 to 45 who run, lift, cycle or play padel</span>
+    <span class="chip"><b>Market</b> Netherlands, English copy, euro</span>
+    <span class="chip"><b>Placements</b> feed 4:5, Stories and Reels 9:16, carousel</span>
+  </div>
+  <div class="bar">
+    <nav class="jump" aria-label="Jump to section">
+      <a href="#approach">Approach</a><a href="#brand">Brand</a><a href="#catalogue">Catalogue</a><a href="#layouts">Layouts</a><a href="#map">Test map</a><a href="#awareness">Awareness</a><a href="#consideration">Consideration</a><a href="#conversion">Conversion</a><a href="#retargeting">Retargeting</a><a href="#method">Method</a>
+    </nav>
+    <div class="bar-btns">
+      <button class="toggle ghost" id="themeBtn" type="button">Dark mode</button>
+      <button class="toggle" id="safeBtn" type="button" aria-pressed="false">Show safe zones</button>
+    </div>
+  </div>
+</header>
+
+<section id="approach">
+  <div class="sec-head"><span class="eyebrow">Approach</span><h2>How I build an ad set</h2><p>The same four steps for any brand. The ads below are what the steps produce once the buyer, the levers and the test plan are agreed.</p></div>
+  <div class="grid">
+    <div class="tile"><span class="num">01</span><h3>Learn the buyer first</h3><p>Audience, price band and product range before the first headline. Here that is people aged 25 to 45 in the Netherlands who run, lift, cycle or play padel and train three or more times a week, choosing between a free plan and Pro at €9.99 a month.</p></div>
+    <div class="tile"><span class="num">02</span><h3>Pick the lever, then write</h3><p>Every ad keeps the brand's existing tone of voice and adds one psychological lever and two emotional triggers to it: contrast, cost per use, mental simulation, risk reversal. The copy follows the lever, so each variant tests a separate idea.</p></div>
+    <div class="tile"><span class="num">03</span><h3>Build the system once</h3><p>Four layouts, one palette, one wordmark. Each layout has its own visual style: the app screen on ink with a dashed volt route for awareness and Stories, a solid volt field for offers, ink with an ultraviolet glow for retargeting cards, and chalk paper for consideration and the conversion ask. Within a round, the layout and the screen style stay fixed, so the message is the only thing a test reads.</p></div>
+    <div class="tile"><span class="num">04</span><h3>Test one variable at a time</h3><p>Each round has one variable, one primary read and one guardrail. The winning message carries forward and the features rotate, so every feature gets read.</p></div>
+  </div>
+</section>
+
+<section id="brand">
+  <div class="sec-head"><span class="eyebrow">Brand</span><h2>Train with direction</h2><p>Rumo is Portuguese for direction. The app plans training, recovery and fuel for people who run, lift, cycle or play padel. The look is ink black and chalk with volt for every number that matters and ultraviolet for the mark. The voice is a good coach: direct, calm and specific, always about the session and never about the body.</p></div>
+  <div class="brand">
+    <div class="tile">
+      <span class="k">Logo</span>
+      <div class="logos">
+        <div><div class="logo-box light" id="logoLight"></div><p class="logo-cap">Light: ink on chalk, ultraviolet needle</p></div>
+        <div><div class="logo-box dark" id="logoDark"></div><p class="logo-cap">Dark: chalk on ink, volt needle</p></div>
+      </div>
+    </div>
+    <div class="tile type">
+      <span class="k">Type</span>
+      <div class="spec"><span style="font:800 34px/1 var(--display);font-stretch:125%;color:var(--accent)">RUMO</span><span>Archivo Expanded 800. Wordmark, tapes and headlines.</span></div>
+      <div class="spec"><span style="font:800 26px/1 var(--display);font-stretch:125%;text-transform:uppercase">Train with a plan.</span><span>Archivo Expanded 800. Ad headlines.</span></div>
+      <div class="spec" style="border:0"><span style="font:500 17px/1.3 var(--body);color:var(--fg);font-variant-numeric:tabular-nums">Recovery 41. Intervals moved to Thursday.</span><span>Inter. Body, data and buttons.</span></div>
+    </div>
+  </div>
+  <div class="pal" style="margin-top:14px" id="palette"></div>
+</section>
+
+<section id="catalogue">
+  <div class="sec-head"><span class="eyebrow">Catalogue</span><h2>Six features, four ads each</h2><p>Each feature appears in exactly four cells. Round 2 picks the hero feature from test results. The plans below sell access to them.</p></div>
+  <div class="cat" id="cat"></div>
+  <div class="plans" id="plans"></div>
+</section>
+
+<section id="layouts">
+  <div class="sec-head"><span class="eyebrow">Layouts</span><h2>Four layouts, four jobs</h2><p>Each layout takes its name from the training world the brand lives in. The funnel phase sets which layout an ad uses, and the lever behind it shapes the words.</p></div>
+  <div class="layouts" id="lays"></div>
+  <div class="grid fixed">
+    <div class="tile"><span class="k">Fixed signal</span><h3>Wordmark on every ad</h3><p>The compass O in every frame: chalk on colour, ink on chalk.</p></div>
+    <div class="tile"><span class="k">Fixed signal</span><h3>Volt carries the data</h3><p>Every number that matters is volt, or sits on volt. Nothing decorative uses it.</p></div>
+    <div class="tile"><span class="k">Fixed signal</span><h3>The real screen</h3><p>Each ad shows the feature it sells as it looks in the app, never a stock photo of an athlete.</p></div>
+    <div class="tile"><span class="k">Fixed signal</span><h3>Short on the image</h3><p>No more than eight words on a frame. Detail goes in the caption, where people read it.</p></div>
+  </div>
+</section>
+
+<section id="map">
+  <div class="sec-head"><span class="eyebrow">Test map</span><h2>Eight rounds, one variable each</h2><p>Each round is a Meta A/B test with three cells and an even budget split.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Round</th><th>Phase</th><th>A/B format</th><th>Variable</th><th>Audience</th><th>Primary read</th><th>Guardrail</th></tr></thead>
+    <tbody id="mapBody"></tbody>
+  </table></div>
+</section>
+
+<div id="phases"></div>
+
+<section id="method" class="method">
+  <div class="sec-head"><span class="eyebrow">Method</span><h2>How a round is run</h2></div>
+  <div class="grid">
+    <div class="tile"><strong>Meta A/B test for every round</strong><p>Meta splits the audience so cells never overlap. Flexible ads mix creative on their own and hide which element won, so they come in after a winner exists.</p></div>
+    <div class="tile"><strong>Seven to thirty days per round</strong><p>Seven days is the floor, so weekday and weekend behaviour both count. The round closes once each cell reaches its conversion target, within 30 days. Results in the first days are unstable, so no winner is called before the round closes.</p></div>
+    <div class="tile"><strong>Even budget, enough results</strong><p>Cells share the round budget evenly. A winner is called once each cell has roughly 25 to 50 of its target event.</p></div>
+    <div class="tile"><strong>Winner carries forward</strong><p>The next round holds the winning message and changes the next variable. Every new idea is tested against the current winner.</p></div>
+    <div class="tile"><strong>Optimise on what Meta can learn from</strong><p>Meta's delivery learns once an ad set reaches about 50 optimisation events in a week. Until subscriptions reach that, rounds optimise on installs or trial starts, and subscriptions are read as the result.</p></div>
+    <div class="tile"><strong>Call winners on confidence</strong><p>Meta reports how likely the winning cell is to win again. A low score counts as a tie, and the current winner stays.</p></div>
+  </div>
+</section>
+</div>
+
+<script>
+/* Rumo ad lab data: 6 features, 4 phases, 8 rounds, 24 cells. Every feature appears 4 times. */
+const PROD={
+ LOG:{code:'RUM01',name:'Training Log',desc:"Every run, lift, ride and padel match in one weekly view, with the next session planned from the last.",plan:'Free and Pro',
+  stat:['5','Sessions this week. Four sports, one log.']},
+ FUEL:{code:'RUM02',name:'Fuel Tracker',desc:"Energy, protein and carbs logged against the day's training, with a time to eat before each session.",plan:'Basic on Free, full on Pro',
+  stat:['128 g','Protein target on a tempo day.']},
+ REC:{code:'RUM03',name:'Recovery Score',desc:"One score each morning from sleep and heart rate variability that sets how hard to train.",plan:'Pro',
+  stat:['41','Recovery score. Easy day, intervals moved to Thursday.']},
+ PLAN:{code:'RUM04',name:'Fuel Plans',desc:"What to eat and when, built around the sessions in your week.",plan:'Pro',
+  stat:['17:00','Last real meal before a 19:00 session.']},
+ COACH:{code:'RUM05',name:'Coach Programmes',desc:"Structured blocks for a half marathon, a strength cycle or a padel season, week by week.",plan:'Pro',
+  stat:['Wk 6','Of a 12 week half marathon block.']},
+ RACE:{code:'RUM06',name:'Race Prep',desc:"A countdown to race day that sets the taper, the target pace and the race fuel.",plan:'Pro',
+  stat:['23','Days to race day. Taper starts in 9.']}
+};
+const PRO='€9.99 a month';
+
+const PHASES=[
+ {id:'awareness',n:1,name:'Awareness',job:'Earn the stop from active people who have never heard of Rumo. One idea per ad, so the name and the product stick in a single scroll.',hook:'Contrast against training without a plan, the cost of weeks that do not build, and a call out to people training for something. Copy stays under two short lines on the frame.',cta:'Learn More for the lever test, Install Now once a hook proves itself.',rounds:[1,2]},
+ {id:'consideration',n:2,name:'Consideration',job:'Give people who stopped once a reason to believe, then find the format that carries it best.',hook:'Cost per week, race morning and the athlete identity. One paragraph is allowed here, never two.',cta:'Learn More when the ad explains, Subscribe when it prices.',rounds:[3,4]},
+ {id:'conversion',n:3,name:'Conversion',job:'Ask for one specific, small yes from people who installed the app or looked at pricing.',hook:'A single ask per ad: a free week, the free plan or the yearly price. Then test how the offer is packaged.',cta:'Sign Up for the free options, Subscribe for paid plans.',rounds:[5,6]},
+ {id:'retargeting',n:4,name:'Retargeting',job:'Close the loop with trial users who have not subscribed, then open the next feature for people who did.',hook:'Short and personal. Nothing new to explain. Stories for the trial reminder, in feed feature cards for subscribers.',cta:'Subscribe for trial users, Use App for subscribers.',rounds:[7,8]}
+];
+
+const ROUNDS=[
+ {n:1,phase:'awareness',variable:'Hook',test:'Three levers, same Recovery Score screen, same frame',hold:'Feature, layout and placement fixed. Only the hook moves.',aud:'Cold. People 25 to 45 in the Netherlands. Interests: running, strength training, cycling, padel. Exclude app users and site visitors.',read:'Link CTR'},
+ {n:2,phase:'awareness',variable:'Hero product',test:'Which feature leads the brand on cold traffic',hold:'Hook held at the round 1 winner, shown here with cell 1A. Only the feature moves.',aud:'Cold. Same interests, fresh split so nobody sees two features.',read:'Cost per install'},
+ {n:3,phase:'consideration',variable:'Angle',test:'Which reason to believe moves a warm viewer to a trial',hold:'Fuel Plans held across all three cells.',aud:'Warm. Instagram engagers 30 days, site visitors 30 days, installs without a trial. Exclude subscribers.',read:'Trial start rate'},
+ {n:4,phase:'consideration',variable:'Format',test:'Story against Reel against carousel',hold:'Angle held at the round 3 winner, shown here with cell 3A. Coach Programmes held.',aud:'Warm. Same pool as round 3, fresh split. Manual placements, one per cell.',read:'Cost per trial start'},
+ {n:5,phase:'conversion',variable:'The ask',test:'Free week, free plan or yearly price',hold:'Training Log and the race bib layout held.',aud:'Hot. Installed in the last 14 days without a plan, pricing page visitors 14 days. Exclude subscribers.',read:'Cost per subscription'},
+ {n:6,phase:'conversion',variable:'Offer structure',test:'Seasonal, bundle or gift',hold:'Ask held at the round 5 winner. Race Prep held.',aud:'Hot. Same pool as round 5, fresh split.',read:'Cost per subscription, share of yearly plans'},
+ {n:7,phase:'retargeting',variable:'Message',test:'Reminder, reassurance or utility',hold:'Fuel Tracker held. Stories only.',aud:'Trial users who have not subscribed, 30 days. Exclude the round 5 and 6 pools.',read:'Trial to paid rate'},
+ {n:8,phase:'retargeting',variable:'Next product',test:'Which feature subscribers open next',hold:'Feature card layout and feed placement held. Only the feature moves.',aud:'Pro subscribers 14 to 60 days who have not opened the feature.',read:'Feature activation rate'}
+];
+
+const CELLS=[
+ /* Round 1: Hook. Recovery Score x3 */
+ {id:'1A',r:1,p:'REC',L:'pace',fmt:'4:5',place:'Feed',t1:'Training without a plan',t2:'is just exercise.',
+  lever:'Contrast and isolation',emo:['Ambition','Clarity'],
+  pt:'Training without a plan is just exercise. Rumo reads your recovery each morning and sets how hard to go.',hl:'Train with a plan',cta:'Learn More',
+  why:'Logging a workout and following a plan are different things. Naming the gap sets Rumo apart from the free trackers people already use.'},
+ {id:'1B',r:1,p:'REC',L:'pace',fmt:'4:5',place:'Feed',t1:'Random weeks',t2:'do not add up.',
+  lever:'Loss aversion',emo:['Focus','Determination'],
+  pt:'Random sessions do not add up. Rumo turns each week into a step towards the next, starting with today\'s recovery.',hl:'Make every week count',cta:'Learn More',
+  why:'A loss weighs more than an equal gain. Framing unplanned training as weeks that go nowhere gives the cost a shape, and it stays about the training, never about the reader.'},
+ {id:'1C',r:1,p:'REC',L:'pace',fmt:'4:5',place:'Feed',t1:'Got a goal',t2:'this spring?',
+  lever:'Self reference',emo:['Recognition','Ambition'],
+  pt:'Training for a race, a league or a lift this spring? Rumo plans the weeks, the fuel and the rest days.',hl:'Training for something?',cta:'Learn More',
+  why:'The question works as a call out. People with a goal on the calendar recognise themselves and stop, which raises engagement among the right people.'},
+
+ /* Round 2: Hero product. Training Log, Fuel Tracker, Race Prep */
+ {id:'2A',r:2,p:'LOG',L:'pace',fmt:'4:5',place:'Feed',t1:'Training without a plan',t2:'is just exercise.',
+  lever:'Contrast and isolation, carried from round 1',emo:['Ambition','Clarity'],cueLabel:'Product cue',cue:['Overview','Momentum'],
+  pt:'Training without a plan is just exercise. Every run, lift, ride and match in one log that plans the next one.',hl:'Train with a plan',cta:'Install Now',
+  why:'A log with every sport in one place is the easiest feature to grasp. If it wins, the multi sport angle leads cold traffic.'},
+ {id:'2B',r:2,p:'FUEL',L:'pace',fmt:'4:5',place:'Feed',t1:'Training without a plan',t2:'is just exercise.',
+  lever:'Contrast and isolation, carried from round 1',emo:['Ambition','Clarity'],cueLabel:'Product cue',cue:['Energy','Precision'],
+  pt:'Training without a plan is just exercise. Rumo matches your energy and protein to the session ahead.',hl:'Train with a plan',cta:'Install Now',
+  why:'Fuel is the part most training apps leave out. If it wins, the gap between training and eating is what makes people stop.'},
+ {id:'2C',r:2,p:'RACE',L:'pace',fmt:'4:5',place:'Feed',t1:'Training without a plan',t2:'is just exercise.',
+  lever:'Contrast and isolation, carried from round 1',emo:['Ambition','Clarity'],cueLabel:'Product cue',cue:['Purpose','Anticipation'],
+  pt:'Training without a plan is just exercise. Pick your race date and Rumo builds the weeks back from it.',hl:'Train with a plan',cta:'Install Now',
+  why:'A date on the calendar gives the plan a reason. If it wins, athletes with a race booked are the core audience to scale.'},
+
+ /* Round 3: Angle. Fuel Plans x3 */
+ {id:'3A',r:3,p:'PLAN',L:'notes',fmt:'4:5',place:'Feed',t1:'Less a week than a coffee.',para:'Rumo Pro on the yearly plan is about €1.35 a week, with a fuel plan for every session.',
+  lever:'Cost per use framing',emo:['Value','Control'],
+  pt:'About €1.35 a week on the yearly plan. Less than the coffee after your long run, with a fuel plan per session.',hl:'About €1.35 a week',cta:'Subscribe',
+  why:'A yearly price reads like a bill. Split into weeks and set next to a coffee the reader already buys, the same number reads small.'},
+ {id:'3B',r:3,p:'PLAN',L:'notes',fmt:'4:5',place:'Feed',t1:'Race morning, sorted.',para:'Breakfast timed, bottle mixed, legs fresh. Fuel plans that work back from the start.',
+  lever:'Mental simulation',emo:['Confidence','Anticipation'],
+  pt:'Picture race morning: breakfast timed, bottle mixed, legs fresh. Rumo plans the fuel back from the start.',hl:'Race morning, sorted',cta:'Learn More',
+  why:'When people can picture a moment going well, they rate it as more likely. A calm race morning is the moment every amateur athlete plans for.'},
+ {id:'3C',r:3,p:'PLAN',L:'notes',fmt:'4:5',place:'Feed',t1:'Fuel like you train.',para:'You plan your sessions. Rumo plans what you eat before and after them.',
+  lever:'Identity signalling',emo:['Pride','Belonging'],
+  pt:'You plan your sessions. Rumo plans what you eat before and after them, so the fuel matches the work.',hl:'Fuel like you train',cta:'Learn More',
+  why:'People who train with intent see themselves as athletes. The line asks them to carry that identity from the session to the plate.'},
+
+ /* Round 4: Format. Coach Programmes x3 */
+ {id:'4A',r:4,p:'COACH',L:'pace',fmt:'9:16',place:'Story',t1:'€1.35 a week.',t2:'Programmes included.',sticker:'See the programmes',
+  lever:'Cost per use framing, carried from round 3',emo:['Value','Control'],cueLabel:'Format cue',cue:['Immediacy'],
+  pt:'About €1.35 a week on the yearly plan, with programmes for a half marathon, a strength block or a padel season.',hl:'About €1.35 a week',cta:'Learn More',
+  why:'A Story is full screen and one tap from the store page. It tests whether the shortest path beats a richer format.'},
+ {id:'4B',r:4,p:'COACH',L:'pace',fmt:'9:16',place:'Reel',t1:'€1.35 a week.',t2:'Programmes included.',reel:'8 sec loop',
+  lever:'Cost per use framing, carried from round 3',emo:['Value','Control'],cueLabel:'Format cue',cue:['Motion','Scale'],
+  pt:'A 12 week half marathon block, scrolled week by week. About €1.35 a week on the yearly plan.',hl:'About €1.35 a week',cta:'Learn More',
+  why:'Motion shows how much sits inside a programme, which a still cannot. If the Reel wins, screen recordings become the next production line.'},
+ {id:'4C',r:4,p:'COACH',L:'notes',fmt:'4:5',place:'Carousel',t1:'About €1.35 a week.',para:'Swipe: the programmes, how a week looks, and the price per week.',
+  slides:[
+   {t1:'Programmes for every goal.',para:'Half marathon, 10K, strength cycles and padel season, each built in blocks.',flat:'list'},
+   {t1:'How a week looks.',para:'Three to five sessions, with rest days set by your recovery score.',flat:'week'},
+   {t1:'About €1.35 a week.',para:'Rumo Pro at €69.99 a year covers every programme and feature.',btn:'See Rumo Pro'}],
+  lever:'Progressive disclosure',emo:['Confidence','Curiosity'],cueLabel:'Format cue',cue:['Self paced','Discovery'],
+  pt:'Four cards: the programmes, how a week looks, the plan in the app, the price per week. Swipe through.',hl:'About €1.35 a week',cta:'Learn More',
+  why:'The careful buyer wants details on their own terms. A carousel lets them reach structure and price without the first card turning into a spec sheet.'},
+
+ /* Round 5: The ask. Training Log x3 */
+ {id:'5A',r:5,p:'LOG',L:'bib',fmt:'4:5',place:'Feed',stamp:'Free for 7 days',t1:'Try Pro for a week.',t2:'Then decide.',
+  lever:'Risk reversal',emo:['Safety','Freedom'],
+  pt:'Try every Pro feature free for seven days, starting with your full training log. Then decide.',hl:'Seven days of Pro, free',cta:'Sign Up',
+  why:'A paid plan feels like a commitment before the app has proved anything. A free week moves the risk to Rumo and makes the first yes small.'},
+ {id:'5B',r:5,p:'LOG',L:'bib',fmt:'4:5',place:'Feed',stamp:'Free plan',t1:'Start free.',t2:'Upgrade when ready.',
+  lever:'Zero price effect',emo:['Ease','Relief'],
+  pt:'The training log and basic fuel tracking are free. Upgrade to Pro when your training needs more.',hl:'Start with Rumo Free',cta:'Sign Up',
+  why:'Free is treated as its own category, so it removes more friction than any discount. The log is useful on day one, which gives Pro a reason to follow.'},
+ {id:'5C',r:5,p:'LOG',L:'bib',fmt:'4:5',place:'Feed',stamp:'Save 41%',t1:'€69.99 a year.',t2:'Instead of €119.88.',
+  lever:'Anchoring',emo:['Value','Commitment'],
+  pt:'Rumo Pro is €9.99 a month or €69.99 a year. The yearly plan works out at €5.83 a month.',hl:'Pro for €5.83 a month',cta:'Subscribe',
+  why:'Twelve monthly payments sit next to the yearly price as the anchor. Seeing €119.88 first makes €69.99 read as the obvious choice.'},
+
+ /* Round 6: Offer structure. Race Prep x3 */
+ {id:'6A',r:6,p:'RACE',L:'pace',volt:true,fmt:'4:5',place:'Feed',t1:'Black Friday.',t2:'A year of Pro, 40% off.',badge:'Black Friday',
+  lever:'Scarcity',emo:['Opportunity','Momentum'],
+  pt:'Black Friday: a year of Rumo Pro at 40% off. Set your spring race date and let Rumo build the weeks.',hl:'A year of Pro, 40% off',cta:'Subscribe',
+  why:'A deadline gives a reason to act now instead of in January. Linking it to a spring race makes the timing useful as well as cheaper.'},
+ {id:'6B',r:6,p:'RACE',L:'pace',volt:true,fmt:'4:5',place:'Feed',t1:'Two athletes.',t2:'One plan.',badge:'Rumo Duo',
+  lever:'Anchoring and bundling',emo:['Connection','Value'],
+  pt:'Rumo Duo: two Pro accounts for €14.99 a month. Train for the same race and see each other\'s weeks.',hl:'Rumo Duo for two',cta:'Subscribe',
+  why:'Two single Pro plans at €19.98 sit next to Duo as the anchor. Training partners also hold each other to the plan, which gives both a reason to keep going.'},
+ {id:'6C',r:6,p:'RACE',L:'pace',volt:true,fmt:'4:5',place:'Feed',t1:'For the one',t2:'with a race booked.',badge:'Gift a year',
+  lever:'Mental simulation',emo:['Generosity','Pride'],
+  pt:'Give a year of Rumo Pro to the friend with a race on the calendar. Sent as a code with your message.',hl:'Gift a year of Pro',cta:'Subscribe',
+  why:'Picturing a friend on race morning does the selling. It also reaches a new subscriber through someone they already train with.'},
+
+ /* Round 7: Message. Fuel Tracker x3, Stories */
+ {id:'7A',r:7,p:'FUEL',L:'pace',fmt:'9:16',place:'Story',t1:'Your fuel plan',t2:'is ready.',sticker:'Open Rumo',
+  lever:'Endowment',emo:['Ownership','Anticipation'],
+  pt:'Your trial is still open, and your fuel plan for the next session is ready. Pick up where you left off.',hl:'Your fuel plan is ready',cta:'Subscribe',
+  why:'Once a plan has been built around their sessions, it already feels like theirs. Pointing at it frames subscribing as keeping what exists.'},
+ {id:'7B',r:7,p:'FUEL',L:'pace',fmt:'9:16',place:'Story',t1:'Hate logging food?',t2:'Scan it. Done.',sticker:'See how it works',
+  lever:'Self reference',emo:['Relief','Trust'],
+  pt:'Hate logging food? Scan the barcode or snap the plate, and Rumo fills in energy and protein.',hl:'Logging in two taps',cta:'Subscribe',
+  why:'The effort of logging food is the obvious doubt about a fuel tracker. The question names it, so the people who share it stop and see it answered.'},
+ {id:'7C',r:7,p:'FUEL',L:'pace',fmt:'9:16',place:'Story',t1:'Session at 19:00?',t2:'Eat by 17:00.',sticker:'See your fuel plan',
+  lever:'Foot in the door',emo:['Ease','Control'],
+  pt:'Training at 19:00? A real meal by 17:00 and a light snack at 18:15. Rumo times this for every session.',hl:'Fuel timed to your session',cta:'Subscribe',
+  why:'A free, usable tip is a small first step. Acting on it once makes opening the app before the next session feel natural.'},
+
+ /* Round 8: Next product. Recovery Score, Fuel Plans, Coach Programmes */
+ {id:'8A',r:8,p:'REC',L:'card',fmt:'4:5',place:'Feed',t1:'Two down. Four to go.',
+  lever:'Collection completion',emo:['Progress','Satisfaction'],
+  pt:'You use the log and the fuel tracker. Recovery Score is next: one number each morning that sets the effort.',hl:'Next up: Recovery Score',cta:'Use App',
+  why:'A visible set with gaps pulls people to fill it. Showing six features with two in use turns exploring the app into completing it.'},
+ {id:'8B',r:8,p:'PLAN',L:'card',fmt:'4:5',place:'Feed',t1:'Starving after long runs?',
+  lever:'Self reference',emo:['Recognition','Relief'],
+  pt:'Starving after long runs? Fuel Plans tells you what to eat before and after, built around your week.',hl:'Fuel Plans, built for your week',cta:'Use App',
+  why:'The question works as a call out. Runners who know that feeling recognise themselves and open the feature, which raises engagement among the right people.'},
+ {id:'8C',r:8,p:'COACH',L:'card',fmt:'4:5',place:'Feed',t1:'Build your first block.',
+  lever:'IKEA effect',emo:['Ownership','Pride'],
+  pt:'Pick a goal, a date and your training days. Coach Programmes builds the block around your week.',hl:'Build your first block',cta:'Use App',
+  why:'People value what they helped shape. Choosing the goal, the date and the days makes the programme theirs before the first session.'}
+];
+
+/* ---------- rendering ---------- */
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const needle=`<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="39.25" fill="none" stroke="currentColor" stroke-width="21.5"/><polygon points="73.3,26.7 57.8,57.8 42.2,42.2" fill="var(--tip,#C8FF2E)"/><polygon points="26.7,73.3 57.8,57.8 42.2,42.2" fill="currentColor"/></svg>`;
+const logo=(cls='')=>`<span class="logo ${cls}" role="img" aria-label="Rumo logo">RUM${needle}</span>`;
+const linkIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>`;
+const sb=`<div class="sb"><span>07:12</span><i></i><span>5G</span></div>`;
+
+const SCREEN={
+ REC:`<span class="lbl">Recovery</span>
+  <div class="ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" fill="none" stroke="#2E2E3A" stroke-width="3.2"/><circle cx="18" cy="18" r="15.9" fill="none" stroke="#C8FF2E" stroke-width="3.2" stroke-dasharray="41 59" stroke-linecap="round"/></svg><span class="big">41</span></div>
+  <span class="pill">Easy day</span>
+  <div><div class="row"><span>Sleep</span><b>6 h 10</b></div><div class="row"><span>HRV</span><b class="warn">Below base</b></div><div class="row"><span>Intervals</span><b>Thursday</b></div></div>
+  <div class="box"><span class="lbl">Last 7 days</span><div class="spark"><i style="height:70%"></i><i style="height:82%"></i><i style="height:64%"></i><i style="height:76%"></i><i style="height:58%"></i><i style="height:49%"></i><i class="on" style="height:41%"></i></div></div>`,
+ LOG:`<span class="ttl">This week</span><span class="lbl">5 sessions · 6 h 40</span>
+  <div class="bars"><i class="on" style="height:70%"></i><i class="on" style="height:45%"></i><i style="height:12%"></i><i class="on" style="height:90%"></i><i class="on" style="height:55%"></i><i style="height:12%"></i><i class="on" style="height:100%"></i></div>
+  <div class="days"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+  <div><div class="row"><span>Tempo run</span><b>8.2 km</b></div><div class="row"><span>Upper body</span><b>45 min</b></div><div class="row"><span>Padel</span><b>90 min</b></div><div class="row"><span>Long run</span><b>16 km</b></div></div>
+  <div class="box"><span class="lbl">Next session</span><strong>Intervals, Thursday</strong><em>Moved from today by your recovery score.</em></div>`,
+ FUEL:`<span class="ttl">Fuel today</span><span class="lbl">Tempo day</span>
+  <div class="meter"><div>Energy<span>2,140 / 2,600 kcal</span></div><div class="track"><b style="width:82%"></b></div></div>
+  <div class="meter"><div>Protein<span>96 / 128 g</span></div><div class="track"><b class="uv" style="width:75%"></b></div></div>
+  <div class="meter"><div>Carbs<span>260 / 320 g</span></div><div class="track"><b style="width:81%"></b></div></div>
+  <span class="pill">Eat by 17:00</span>
+  <div class="row"><span>Next: tempo run</span><b>19:00</b></div>
+  <div class="box"><span class="lbl">Still to eat today</span><strong>460 kcal · 32 g protein</strong><em>A pasta bowl at 17:00 covers most of it.</em></div>`,
+ PLAN:`<span class="ttl">Tuesday plan</span><span class="lbl">Tempo run at 19:00</span>
+  <div class="tl"><div><b>12:30</b><span>Rice and chicken</span></div><div><b>15:30</b><span>Yoghurt, banana</span></div><div><b>17:00</b><span>Pasta bowl</span></div><div class="hot"><b>19:00</b><span>Tempo run</span></div><div><b>20:30</b><span>Recovery shake</span></div></div>
+  <div class="box"><span class="lbl">Before the run</span><strong>Carbs at 17:00</strong><em>Light snack at 18:15, water with salt.</em></div>`,
+ COACH:`<span class="ttl">Half marathon</span><span class="lbl">Week 6 of 12</span>
+  <div class="weeks"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div><div class="row"><span>Today</span><b>6 x 800 m</b></div><div class="row"><span>Thursday</span><b>Easy 8 km</b></div><div class="row"><span>Sunday</span><b>Long 18 km</b></div></div>
+  <div class="box"><span class="lbl">Block progress</span><div class="track"><b style="width:42%"></b></div><em>Week 6 of 12. Long runs build to 21 km.</em></div>`,
+ RACE:`<span class="pill uv">Spring half</span><span class="lbl">Race day in</span><span class="big">23</span><span class="ttl">days</span>
+  <div><div class="row"><span>Taper starts</span><b>in 9 days</b></div><div class="row"><span>Target pace</span><b>5:05 /km</b></div><div class="row"><span>Race fuel</span><b>Plan ready</b></div></div>
+  <div class="box"><span class="lbl">Taper plan</span><strong>Volume down 40%</strong><em>Intensity stays. Two easy runs in race week.</em></div>`
+};
+const TAB={REC:1,LOG:0,FUEL:2,PLAN:2,COACH:1,RACE:1};
+const tabs=k=>`<div class="tabs">${['Log','Train','Fuel','Me'].map((n,i)=>`<span class="${i===TAB[k]?'on':''}">${n}</span>`).join('')}</div>`;
+const phone=k=>`<div class="phone" role="img" aria-label="Rumo app screen: ${PROD[k].name}"><div class="scr">${sb}${SCREEN[k]}${tabs(k)}<span class="home"></span></div></div>`;
+const tapeSize=c=>{const m=Math.max(...CELLS.filter(x=>x.r===c.r&&x.L===c.L).flatMap(x=>[x.t1,x.t2||'']).map(t=>t.length));return m>18?4.7:6;};
+const tapes=c=>`<div class="tapes" style="--ts:${c.L==='card'?4.8:tapeSize(c)}cqw"><div class="tw"><span class="tape a">${esc(c.t1)}</span></div>${c.t2?`<div class="tw"><span class="tape b">${esc(c.t2)}</span></div>`:''}</div>`;
+
+const ROUTE={
+ feed:{h:125,d:'M30 118 C 44 118, 50 110, 50.5 98 S 49 70, 51 56 S 56 36, 72 33 S 88 31, 92 30',s:[30,118],e:[92,30]},
+ story:{h:177.8,d:'M8 124 C 30 124, 46 118, 50 104 S 50 80, 52 68 S 62 50, 76 47 S 88 46, 92 46',s:[8,124],e:[92,46]},
+ reel:{h:177.8,d:'M8 108 C 30 108, 48 104, 53 92 S 55 74, 58 64 S 66 52, 80 50 S 89 50, 92 50',s:[8,108],e:[92,50]}};
+const route=k=>{const r=ROUTE[k];return `<svg class="route" viewBox="0 0 100 ${r.h}" preserveAspectRatio="none" aria-hidden="true"><path d="${r.d}" fill="none" stroke="#C8FF2E" stroke-width=".9" stroke-dasharray="2.2 1.6" stroke-linecap="round"/><circle cx="${r.s[0]}" cy="${r.s[1]}" r="1.6" fill="#C8FF2E"/><circle cx="${r.e[0]}" cy="${r.e[1]}" r="2.2" fill="#6B2BFF" stroke="#C8FF2E" stroke-width=".7"/></svg>`;};
+const statVal=v=>{const m=/^(\d[\d:.,]*) (\S+)$/.exec(v);return m?`${m[1]}<small>${m[2]}</small>`:esc(v);};
+function ad(c){
+  const P=PROD[c.p], v=c.fmt==='9:16', reel=c.place==='Reel';
+  const cls=`ad L-${c.L}${c.volt?' volt':''}${v?' v':''}${reel?' reel':''}`;
+  const safe=v?`<span class="safe top">Safe zone</span><span class="safe bot">${reel?'Caption and actions':'Reply bar'}</span>`:'';
+  if(c.L==='pace') return `<div class="${cls}" style="--f:${c.volt?'#C8FF2E':'#0B0B0F'}">${c.volt?'':route(reel?'reel':v?'story':'feed')}
+     ${c.place==='Story'?'<span class="progress"></span>':''}
+     ${tapes(c)}
+     <div class="stat"><b>${statVal(P.stat[0])}</b><span>${esc(P.stat[1])}</span></div>
+     ${phone(c.p)}${logo()}
+     ${c.badge?`<span class="badge">${c.badge}</span>`:''}
+     ${c.sticker?`<span class="story-sticker">${linkIcon}${c.sticker}</span>`:''}
+     ${reel?`<span class="reel-chip"><i></i>${c.reel}</span><span class="reel-cta"><span>${c.cta}</span><b>&#8250;</b></span>`:''}${safe}</div>`;
+  if(c.L==='notes'&&c.flat){
+    const inner=c.flat==='list'
+     ?`<div class="fl-tapes"><div class="tw"><span class="tape a">Half marathon</span></div><div class="tw"><span class="tape b">10K</span></div><div class="tw"><span class="tape b">Strength cycle</span></div><div class="tw"><span class="tape b">Padel season</span></div></div>`
+     :`<div class="fl-week">${[['M','s','Intervals'],['T','r','Rest'],['W','s','Strength'],['T','s','Easy run'],['F','r','Rest'],['S','s','Padel'],['S','s','Long run']].map(([d,t,l])=>`<div><i class="${t}">${l}</i>${d}</div>`).join('')}</div><div class="fl-key"><span><i></i>Session</span><span><i class="r"></i>Rest day</span></div>`;
+    return `<div class="${cls}"><div class="flat">${inner}${logo()}</div>
+     <span class="count-chip">${c.idx+1}/${c.total}</span><span class="dots">${Array.from({length:c.total},(_,i)=>`<i class="${i===c.idx?'on':''}"></i>`).join('')}</span>
+     <div class="band"><h4>${esc(c.t1)}</h4><p>${esc(c.para)}</p></div></div>`;}
+  if(c.L==='notes') return `<div class="${cls}">${phone(c.p)}${logo()}
+     ${c.total?`<span class="count-chip">${c.idx+1}/${c.total}</span><span class="dots">${Array.from({length:c.total},(_,i)=>`<i class="${i===c.idx?'on':''}"></i>`).join('')}</span>`:`<span class="fname">${P.name}</span>`}
+     <div class="band"><h4>${esc(c.t1)}</h4><p>${esc(c.para)}</p>${c.btn?`<span class="band-btn">${c.btn}</span>`:''}</div></div>`;
+  if(c.L==='bib') return `<div class="${cls}">${logo()}
+     <div class="bib"><span class="no">${P.code.slice(3)}</span><span class="cap">${P.name} · Rumo</span><div class="mini" role="img" aria-label="Rumo app screen: ${P.name}"><div class="scr">${SCREEN[c.p]}</div></div></div>
+     <span class="stamp">${c.stamp}</span>
+     <p class="bib-hl">${esc(c.t1)}<span>${esc(c.t2)}</span></p></div>`;
+  if(c.L==='card') return `<div class="${cls}">${phone(c.p)}${tapes(c)}${logo()}
+     <div class="cbar"><div><div class="nm">${P.name}</div><div class="pr">Included in Rumo Pro</div></div><span class="go">Open</span></div></div>`;
+}
+
+function carousel(c){
+  const cards=[{...c,idx:0},...c.slides.map((sl,i)=>({...c,...sl,idx:i+1}))].map(x=>({...x,total:c.slides.length+1}));
+  return `<div class="car-wrap"><div class="strip" tabindex="0" aria-label="Carousel, ${cards.length} cards">${cards.map(ad).join('')}</div>
+   <button class="car-btn prev" type="button" aria-label="Previous card" disabled>&#8249;</button><button class="car-btn next" type="button" aria-label="Next card">&#8250;</button></div>
+   <div class="car-nav">${cards.map((_,i)=>`<button type="button" class="car-dot${i?'':' on'}" aria-label="Go to card ${i+1}"></button>`).join('')}<span class="car-count">1 / ${cards.length}</span></div>`;
+}
+function card(c){
+  return `<article class="card">
+   <div class="card-top"><span class="id">Round ${c.r} · Cell ${c.id.slice(1)}</span><span>${c.place} ${c.fmt} · ${PROD[c.p].name}</span></div>
+   <div class="art${c.fmt==='9:16'?' tall':''}">${Array.isArray(c.slides)?carousel(c):ad(c)}</div>
+   <div class="meta">
+     <div class="kv"><span class="k">Lever</span><span class="lever">${c.lever}</span></div>
+     <div class="kv"><span class="k">Emotional triggers</span><div class="trig">${c.emo.map(e=>`<span>${e}</span>`).join('')}</div></div>
+     ${c.cue?`<div class="kv"><span class="k">${c.cueLabel}</span><div class="trig cue">${c.cue.map(e=>`<span>${e}</span>`).join('')}</div></div>`:''}
+     <div class="copy">
+       <div class="row"><span class="lab">Primary</span><span>${esc(c.pt)} <span class="count">${c.pt.length}/125</span></span></div>
+       <div class="row"><span class="lab">Headline</span><span><b>${esc(c.hl)}</b> <span class="count">${c.hl.length}/40</span></span></div>
+       <div class="row"><span class="lab">CTA</span><span class="btn">${c.cta}</span></div>
+     </div>
+     <div class="kv"><span class="k">Why this angle</span><span class="v m">${esc(c.why)}</span></div>
+   </div></article>`;
+}
+
+/* brand */
+document.getElementById('logoLight').innerHTML=logo();
+document.getElementById('logoDark').innerHTML=logo();
+const PAL=[['Rumo Ink','#0B0B0F','Base, text, phone'],['Volt','#C8FF2E','Data, first tape, buttons'],['Ultraviolet','#6B2BFF','Mark, fields, offers'],['Chalk','#F2F0EA','Paper, second tape, logo'],['Signal Red','#FF4A2B','Recovery warnings only']];
+document.getElementById('palette').innerHTML=PAL.map(([n,h,r])=>`<div class="sw"><i style="background:${h}"></i><div><b>${n}</b><code>${h}</code><br>${r}</div></div>`).join('');
+
+/* catalogue and plans */
+document.getElementById('cat').innerHTML=Object.entries(PROD).map(([k,p])=>`<div class="prod"><div class="shot">${phone(k)}</div><div class="info"><code>${p.code}</code><b>${p.name}</b><p>${p.desc}</p><span class="pl">${p.plan}</span><span class="uses">Cells ${CELLS.filter(c=>c.p===k).map(c=>c.id).join(', ')}</span></div></div>`).join('');
+const PLANS=[['Rumo Free','€0','Training Log and basic fuel tracking.'],['Rumo Pro','€9.99 a month or €69.99 a year','All six features, including Recovery Score and Coach Programmes.'],['Rumo Duo','€14.99 a month','Two Pro accounts for training partners.']];
+document.getElementById('plans').innerHTML=PLANS.map(([n,pr,d])=>`<div class="tile plan"><span class="k">Plan</span><b>${n}</b><span class="price">${pr}</span><p>${d}</p></div>`).join('');
+
+/* layouts */
+const LAYS=[
+ ['pace','Pace Board','Ink field with a dashed volt route from start to finish, two tape strips, the key number and the app screen. Awareness and Stories, with a solid volt field for offers.','1A'],
+ ['notes','Session Notes','The screen on chalk grid paper above an ink band with one headline and one paragraph. Consideration.','3B'],
+ ['bib','Race Bib','Chalk paper, a pinned race bib with the screen, a round stamp. The conversion ask.','5A'],
+ ['card','Feature Card','The screen, one tape, a bar with the feature name and an open button. In feed retargeting.','8C']];
+document.getElementById('lays').innerHTML=LAYS.map(([k,n,d,id],i)=>`<div class="lay"><div class="mini">${ad(CELLS.find(c=>c.id===id))}</div><div class="txt"><span class="k">Layout ${i+1}</span><h3>${n}</h3><p>${d}</p></div></div>`).join('');
+
+/* test map */
+const FMT={1:'3 cells, feed 4:5',2:'3 cells, feed 4:5',3:'3 cells, feed 4:5',4:'Story vs Reel vs carousel',5:'3 cells, feed 4:5',6:'3 cells, feed 4:5',7:'3 cells, Stories 9:16',8:'3 cells, feed feature cards'};
+const GUARD={1:'Frequency under 2.5',2:'Hook held at round 1 winner',3:'Store page conversion rate',4:'Angle held at round 3 winner',5:'Refund rate in month one',6:'Ask held at round 5 winner',7:'Frequency under 4 a week',8:'Frequency under 3 a week'};
+document.getElementById('mapBody').innerHTML=ROUNDS.map(r=>`<tr><td class="r">${r.n}</td><td><span class="ph">${PHASES.find(p=>p.id===r.phase).name}</span></td><td>${FMT[r.n]}</td><td><b>${r.variable}</b></td><td>${r.aud}</td><td>${r.read}</td><td>${GUARD[r.n]}</td></tr>`).join('');
+
+/* phases */
+document.getElementById('phases').innerHTML=PHASES.map(ph=>`<section class="phase" id="${ph.id}">
+  <div class="phase-head"><span class="pn">Phase ${ph.n}</span><h2>${ph.name}</h2></div>
+  <div class="phase-tiles">
+    <div class="tile"><span class="k">Job</span><p>${ph.job}</p></div>
+    <div class="tile"><span class="k">Hook and copy</span><p>${ph.hook}</p></div>
+    <div class="tile"><span class="k">CTA</span><p>${ph.cta}</p></div>
+  </div>
+  ${ph.rounds.map(n=>{const r=ROUNDS.find(x=>x.n===n);return `<div class="round">
+    <div class="round-head"><span class="n">${r.n}</span><h3 style="font-size:clamp(22px,2.6vw,30px)">${r.variable}</h3></div>
+    <p class="round-sub"><b style="color:var(--fg)">${r.test}.</b> ${r.hold}</p>
+    <div class="round-meta"><span>Audience: ${r.aud}</span><span>Read: ${r.read}</span></div>
+    <div class="cells">${CELLS.filter(c=>c.r===n).map(card).join('')}</div></div>`}).join('')}
+</section>`).join('');
+
+/* carousel controls: arrows, dots, keyboard, mouse drag */
+document.querySelectorAll('.car-wrap').forEach(w=>{
+  const st=w.querySelector('.strip'), prev=w.querySelector('.prev'), next=w.querySelector('.next');
+  const nav=w.nextElementSibling, dots=[...nav.querySelectorAll('.car-dot')], cnt=nav.querySelector('.car-count'), n=dots.length;
+  const idx=()=>Math.round(st.scrollLeft/st.clientWidth);
+  const go=i=>st.scrollTo({left:Math.max(0,Math.min(n-1,i))*st.clientWidth,behavior:'smooth'});
+  const sync=()=>{const i=idx(); dots.forEach((d,k)=>d.classList.toggle('on',k===i)); prev.disabled=i<=0; next.disabled=i>=n-1; cnt.textContent=(i+1)+' / '+n;};
+  prev.onclick=()=>go(idx()-1); next.onclick=()=>go(idx()+1);
+  dots.forEach((d,k)=>d.onclick=()=>go(k));
+  st.addEventListener('scroll',()=>requestAnimationFrame(sync));
+  st.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(idx()+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(idx()-1)}});
+  let x0=null,s0=0,moved=0;
+  st.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return; x0=e.clientX; s0=st.scrollLeft; moved=0; st.classList.add('drag'); st.setPointerCapture(e.pointerId);});
+  st.addEventListener('pointermove',e=>{if(x0===null)return; moved=e.clientX-x0; st.scrollLeft=s0-moved;});
+  const end=()=>{if(x0===null)return; st.classList.remove('drag'); const i=Math.round(s0/st.clientWidth)+(moved<-40?1:moved>40?-1:0); x0=null; go(i);};
+  st.addEventListener('pointerup',end); st.addEventListener('pointercancel',end);
+});
+
+/* colour mode: names the mode it switches to, remembers the choice per device */
+const tBtn=document.getElementById('themeBtn'), root=document.documentElement;
+const isDark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+const label=()=>{tBtn.textContent=isDark()?'Light mode':'Dark mode';};
+try{const saved=localStorage.getItem('rumo-theme'); if(saved) root.dataset.theme=saved;}catch(e){}
+label();
+tBtn.addEventListener('click',()=>{root.dataset.theme=isDark()?'light':'dark'; label(); try{localStorage.setItem('rumo-theme',root.dataset.theme);}catch(e){}});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',label);
+const btn=document.getElementById('safeBtn');
+btn.addEventListener('click',()=>{const on=document.body.classList.toggle('show-safe');btn.setAttribute('aria-pressed',on);btn.textContent=on?'Hide safe zones':'Show safe zones';});
+
+</script>
+
+</body></html>

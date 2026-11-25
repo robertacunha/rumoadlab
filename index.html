@@ -302,6 +302,20 @@ td.r{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:22px
 .car-dot.on{background:var(--accent);width:22px;border-radius:99px}
 .car-count{font-size:12px;color:var(--muted);margin-left:6px;font-variant-numeric:tabular-nums}
 
+
+/* ad creative plus options */
+.beats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-bottom:26px}
+.beats .tile .tc{font:800 15px/1 var(--display);font-stretch:112%;color:var(--accent);font-variant-numeric:tabular-nums}
+.look{margin-top:30px}
+.look-head{display:grid;gap:6px;margin-bottom:16px;max-width:72ch}
+.look-head p{color:var(--muted);font-size:15px}
+.reels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px;align-items:start}
+.reel-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.vid{padding:12px 12px 0;display:grid;justify-items:center}
+.vid video{width:100%;max-width:320px;aspect-ratio:9/16;border-radius:14px;background:#0B0B0F;display:block;object-fit:cover}
+.reel-card .meta{gap:10px}
+.hookline{font:800 17px/1.25 var(--display);font-stretch:112%;text-transform:uppercase}
+.fmt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:26px}
 /* safe zones */
 .ad.v .safe{display:none;position:absolute;left:0;right:0;z-index:5;background:repeating-linear-gradient(45deg,rgba(255,74,43,.34) 0 2cqw,rgba(255,74,43,.12) 2cqw 4cqw);color:#fff;font:700 3.2cqw/1 var(--body);letter-spacing:.06em;text-transform:uppercase;align-items:center;justify-content:center;text-shadow:0 0 1cqw rgba(11,11,15,.8)}
 .ad.v .safe.top{top:0;height:14%}
@@ -315,6 +329,7 @@ td.r{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:22px
 @media (prefers-reduced-motion:no-preference){ .card{transition:transform .2s} .card:hover{transform:translateY(-3px)} }
 @media (prefers-reduced-motion:reduce){ html,.strip{scroll-behavior:auto} }
 </style>
+
 
 </head><body>
 <div class="wrap">
@@ -331,7 +346,7 @@ td.r{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:22px
   </div>
   <div class="bar">
     <nav class="jump" aria-label="Jump to section">
-      <a href="#approach">Approach</a><a href="#brand">Brand</a><a href="#catalogue">Catalogue</a><a href="#layouts">Layouts</a><a href="#map">Test map</a><a href="#awareness">Awareness</a><a href="#consideration">Consideration</a><a href="#conversion">Conversion</a><a href="#retargeting">Retargeting</a><a href="#method">Method</a>
+      <a href="#approach">Approach</a><a href="#brand">Brand</a><a href="#catalogue">Catalogue</a><a href="#layouts">Layouts</a><a href="#map">Test map</a><a href="#awareness">Awareness</a><a href="#consideration">Consideration</a><a href="#conversion">Conversion</a><a href="#retargeting">Retargeting</a><a href="#creative">Creative plus</a><a href="#method">Method</a>
     </nav>
   </div>
 </header>
@@ -393,6 +408,79 @@ td.r{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:22px
 
 <div id="phases"></div>
 
+
+<section id="creative">
+  <div class="sec-head"><span class="eyebrow">Ad creative plus options</span><h2>First person Reels</h2><p>A video layer for round 1. The viewer runs through Amsterdam behind a training display in Rumo's style, as if wearing smart glasses. Each Reel opens with one of the three round 1 hooks. Everything after the first five seconds is identical, so a test of the three reads the hook alone.</p></div>
+  <div class="beats">
+    <div class="tile"><span class="tc">0:00 to 0:05</span><h3>Hook and objective</h3><p>The round 1 hook on tape, the objective and a minimap with the route. The kick drum lands on each step.</p></div>
+    <div class="tile"><span class="tc">0:05 to 0:08</span><h3>Run complete</h3><p>The runner arrives and the session is logged: 8.2 km tempo. The beat drops out.</p></div>
+    <div class="tile"><span class="tc">0:08 to 0:12</span><h3>Plan update</h3><p>The app shows what the plan does next. The beat comes back in.</p></div>
+    <div class="tile"><span class="tc">0:12 to 0:15</span><h3>End card</h3><p>The logo with the dashed route and the line "Train with a plan."</p></div>
+  </div>
+  <div class="look">
+    <div class="look-head"><span class="k">Look 1</span><h3 style="font-size:clamp(20px,2.4vw,26px)">Night run on the Singel</h3><p>Blue hour along the canal, street lamps and lit windows, ending at a bridge. The plan update reads "We moved your intervals to Thursday" with recovery at 41.</p></div>
+    <div class="reels">
+    <article class="reel-card">
+      <div class="card-top"><span class="id">Hook A</span><span>Reel 9:16 · 15 s</span></div>
+      <div class="vid"><video controls playsinline muted loop preload="none" poster="video/rumo_night_A.jpg" src="video/rumo_night_A.mp4" aria-label="Rumo Reel, hook A"></video></div>
+      <div class="meta">
+        <div class="kv"><span class="k">Hook</span><span class="hookline">Training without a plan / is just exercise.</span></div>
+        <div class="kv"><span class="k">Lever</span><span class="lever">Contrast and isolation, carried from round 1</span></div>
+        <div class="kv"><span class="k">Emotional triggers</span><div class="trig"><span>Ambition</span><span>Clarity</span></div></div>
+      </div></article>
+    <article class="reel-card">
+      <div class="card-top"><span class="id">Hook B</span><span>Reel 9:16 · 15 s</span></div>
+      <div class="vid"><video controls playsinline muted loop preload="none" poster="video/rumo_night_B.jpg" src="video/rumo_night_B.mp4" aria-label="Rumo Reel, hook B"></video></div>
+      <div class="meta">
+        <div class="kv"><span class="k">Hook</span><span class="hookline">Random runs / don't add up.</span></div>
+        <div class="kv"><span class="k">Lever</span><span class="lever">Loss aversion, carried from round 1</span></div>
+        <div class="kv"><span class="k">Emotional triggers</span><div class="trig"><span>Focus</span><span>Determination</span></div></div>
+      </div></article>
+    <article class="reel-card">
+      <div class="card-top"><span class="id">Hook C</span><span>Reel 9:16 · 15 s</span></div>
+      <div class="vid"><video controls playsinline muted loop preload="none" poster="video/rumo_night_C.jpg" src="video/rumo_night_C.mp4" aria-label="Rumo Reel, hook C"></video></div>
+      <div class="meta">
+        <div class="kv"><span class="k">Hook</span><span class="hookline">Got a goal / this spring?</span></div>
+        <div class="kv"><span class="k">Lever</span><span class="lever">Self reference, carried from round 1</span></div>
+        <div class="kv"><span class="k">Emotional triggers</span><div class="trig"><span>Recognition</span><span>Ambition</span></div></div>
+      </div></article>
+    </div>
+  </div>
+  <div class="look">
+    <div class="look-head"><span class="k">Look 2</span><h3 style="font-size:clamp(20px,2.4vw,26px)">Day run to Dam Square</h3><p>Afternoon light along the Singel, a left turn into Paleisstraat and onto the Dam, with the Royal Palace and the National Monument ahead. The plan update reads "Recovery: 36 hours. Next hard session Friday." with tomorrow set at 6 km at 6:00 /km.</p></div>
+    <div class="reels">
+    <article class="reel-card">
+      <div class="card-top"><span class="id">Hook A</span><span>Reel 9:16 · 15 s</span></div>
+      <div class="vid"><video controls playsinline muted loop preload="none" poster="video/rumo_dam_A.jpg" src="video/rumo_dam_A.mp4" aria-label="Rumo Reel, hook A"></video></div>
+      <div class="meta">
+        <div class="kv"><span class="k">Hook</span><span class="hookline">Training without a plan / is just exercise.</span></div>
+        <div class="kv"><span class="k">Lever</span><span class="lever">Contrast and isolation, carried from round 1</span></div>
+        <div class="kv"><span class="k">Emotional triggers</span><div class="trig"><span>Ambition</span><span>Clarity</span></div></div>
+      </div></article>
+    <article class="reel-card">
+      <div class="card-top"><span class="id">Hook B</span><span>Reel 9:16 · 15 s</span></div>
+      <div class="vid"><video controls playsinline muted loop preload="none" poster="video/rumo_dam_B.jpg" src="video/rumo_dam_B.mp4" aria-label="Rumo Reel, hook B"></video></div>
+      <div class="meta">
+        <div class="kv"><span class="k">Hook</span><span class="hookline">Random runs / don't add up.</span></div>
+        <div class="kv"><span class="k">Lever</span><span class="lever">Loss aversion, carried from round 1</span></div>
+        <div class="kv"><span class="k">Emotional triggers</span><div class="trig"><span>Focus</span><span>Determination</span></div></div>
+      </div></article>
+    <article class="reel-card">
+      <div class="card-top"><span class="id">Hook C</span><span>Reel 9:16 · 15 s</span></div>
+      <div class="vid"><video controls playsinline muted loop preload="none" poster="video/rumo_dam_C.jpg" src="video/rumo_dam_C.mp4" aria-label="Rumo Reel, hook C"></video></div>
+      <div class="meta">
+        <div class="kv"><span class="k">Hook</span><span class="hookline">Got a goal / this spring?</span></div>
+        <div class="kv"><span class="k">Lever</span><span class="lever">Self reference, carried from round 1</span></div>
+        <div class="kv"><span class="k">Emotional triggers</span><div class="trig"><span>Recognition</span><span>Ambition</span></div></div>
+      </div></article>
+    </div>
+  </div>
+  <div class="fmt-grid">
+    <div class="tile"><span class="k">Placement</span><h3>Reels 9:16</h3><p>1080 by 1920 at 30 frames per second. Text stays clear of the bottom 35%, where Instagram places the caption and the Install Now bar.</p></div>
+    <div class="tile"><span class="k">Sound</span><h3>Original techno track</h3><p>Composed for the Reel at 120 BPM, so there is no music licence to clear. The videos here start muted; turn the sound on in the player.</p></div>
+    <div class="tile"><span class="k">Read</span><h3>Same as round 1</h3><p>Link CTR, with frequency under 2.5 as the guardrail. A Reel cell can also be read on 3 second views, since motion is what it adds.</p></div>
+  </div>
+</section>
 <section id="method" class="method">
   <div class="sec-head"><span class="eyebrow">Method</span><h2>How a round is run</h2></div>
   <div class="grid">
@@ -729,5 +817,4 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',label);
 
 
 </script>
-
 </body></html>
